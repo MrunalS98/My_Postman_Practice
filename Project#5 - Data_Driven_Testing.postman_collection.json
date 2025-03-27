@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "d0677d10-4b3e-41f7-90fa-6c2860267ea1",
+		"name": "Project#5 - Data_Driven_Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34895668",
+		"_collection_link": "https://www.postman.com/solankimrunal/workspace/my-workspace/collection/34895668-d0677d10-4b3e-41f7-90fa-6c2860267ea1?action=share&source=collection_link&creator=34895668"
+	},
+	"item": [
+		{
+			"name": "Create_Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.not.equal(null);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\" : \"{{Email}}\",\r\n        \"password\" : \"{{Password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/register/preprod",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"register",
+						"preprod"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
